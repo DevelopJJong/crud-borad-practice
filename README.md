@@ -2,4 +2,4 @@
 
 - [x] Github issue 연습
 - [x] ERD 작성 -> Document 폴더에 저장
-- [ ] .
+- [x] .
