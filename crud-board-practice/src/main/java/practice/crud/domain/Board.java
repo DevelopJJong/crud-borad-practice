@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Entity
 public class Board {
@@ -19,13 +18,13 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 500)
     private String content;
 
-    @Column
+    @Column(length = 10)
     private String hashtag;
 
     @CreationTimestamp
@@ -36,4 +35,13 @@ public class Board {
     @Column(nullable = false)
     private LocalDateTime modifiedAt;
 
+    @Builder
+    public Board(int id, String title, String content, String hashtag, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.hashtag = hashtag;
+        this.createdAt = createdAt;
+        this.modifiedAt = modifiedAt;
+    }
 }

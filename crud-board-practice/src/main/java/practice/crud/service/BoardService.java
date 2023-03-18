@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import practice.crud.domain.Board;
+import practice.crud.dto.BoardDto;
 import practice.crud.repository.BoardRepository;
 
 import java.time.LocalDateTime;
@@ -43,6 +44,8 @@ public class BoardService {
      * UPDATE
      */
     public void update(Board board){
+        BoardDto boardDto = new BoardDto();
+        board.setCreatedAt(boardDto.getModifiedAt());
         boardRepository.save(board);
     }
 
